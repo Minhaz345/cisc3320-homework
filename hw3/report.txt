@@ -1,0 +1,37 @@
+≈CISC 3320 — Homework 3
+Scheduler Simulator Report
+
+This software imports a CSV file called my_workload.csv and carries out the processing of 5 algorithms name
+ FCFS, SJF, Round Robin and Priority, and MLFQ.. Each of these 5 algorithms utilizes a different copy of processes.
+
+FCFS runs processes in arrival order. Equal arrival times follow input order. SJF executes the ready process with the shortest burst time until finishes.
+ If burst times are equal, then the process that arrived earlier goes first. If arrival times are also equal, then the input order breaks the tie.
+
+Round Robin uses a quantum of 4 time units. Unfinished processes return to the end of the queue.
+Processes arriving during a turn join the queue before the running process is added back.
+
+Priority scheduling is non-preemptive. Smaller priority numbers run first. Every 5 waiting units improves a process’s priority by 1. Ties use earlier arrival, then input order.
+
+MLFQ uses three queues with allowances of 4, 8, and 16 time units.
+ New processes enter Q0. An unfinished process moves down after using its full allowance. Processes in Q2 stay there and return to the back of the queue.
+
+Higher queues can interrupt lower queues. Interrupted processes keep their queue position and unused allowance. Every 50 time units, ready processes return to Q0 with reset allowances,
+keeping Q0 processes first, followed by Q1 and Q2.
+
+
+Results for my_workload.csv
+Algorithm Avg Waiting Avg Turnaround Avg Response
+FCFS 14.60 22.00 14.60
+SJF 13.40 20.80 13.40
+Round Robin 19.40 26.80 6.60
+Priority 16.00 23.40 16.00
+MLFQ 18.60 26.00 5.80
+
+
+SJF recorded the smallest average wait time and turnaround time. MLFQ had the lowest mean response time. These values were related to the above workload. 
+
+Testing and Assumptions
+
+All five algorithms achieved the benchmark averages in the lectures. Another workload of 5 processes was also run. The simulator assumes the processes run on CPU with no context-switching cost. 
+Run with: python3 simulator.py
+

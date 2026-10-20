@@ -1,0 +1,68 @@
+
+Algorithm: FCFS
+PID arrival burst start finish waiting turnaround response
+P1 1 12 1 13 0 12 0
+P2 2 4 13 17 11 15 11
+P3 4 6 26 32 22 28 22
+P4 6 6 32 38 26 32 26
+P5 3 9 17 26 14 23 14
+
+Average waiting 14.6
+Average turnaround  22.0
+Average response  14.6
+
+Algorithm: SJF
+PID arrival burst start finish waiting turnaround response
+P1 1 12 1 13 0 12 0
+P2 2 4 13 17 11 15 11
+P3 4 6 17 23 13 19 13
+P4 6 6 23 29 17 23 17
+P5 3 9 29 38 26 35 26
+
+Average waiting 13.4
+Average turnaround  20.8
+Average response  13.4
+
+Algorithm: Round Robin
+PID arrival burst start finish waiting turnaround response
+P1 1 12 1 35 22 34 0
+P2 2 4 5 9 3 7 3
+P3 4 6 13 31 21 27 9
+P4 6 6 21 37 25 31 15
+P5 3 9 9 38 26 35 6
+
+Average waiting 19.4
+Average turnaround  26.8
+Average response  6.6
+
+Algorithm: Priority
+PID arrival burst start finish waiting turnaround response
+P1 1 12 1 13 0 12 0
+P2 2 4 28 32 26 30 26
+P3 4 6 22 28 18 24 18
+P4 6 6 32 38 26 32 26
+P5 3 9 13 22 10 19 10
+
+Average waiting 16.0
+Average turnaround  23.4
+Average response  16.0
+
+Algorithm: MLFQ
+PID arrival burst start finish waiting turnaround response
+P1 1 12 1 29 16 28 0
+P2 2 4 5 9 3 7 3
+P3 4 6 13 36 26 32 9
+P4 6 6 17 38 26 32 11
+P5 3 9 9 34 22 31 6
+
+Average waiting 18.6
+Average turnaround  26.0
+Average response  5.8
+
+COMPARISON REPORT
+Algorithm          Waiting   Turnaround   Response
+FCFS                 14.60        22.00      14.60
+SJF                  13.40        20.80      13.40
+Round Robin          19.40        26.80       6.60
+Priority             16.00        23.40      16.00
+MLFQ                 18.60        26.00       5.80
