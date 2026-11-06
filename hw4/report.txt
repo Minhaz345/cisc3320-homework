@@ -1,0 +1,25 @@
+CISC 3320 — Homework 4
+Minhaz Islam
+
+The programs in both cases have 3 producers, 3 consumers, and a buffer size of 2. A producer generates 5 items therefore generating a total of 15 items.
+Producers have to wait when the buffer is full and the consumers have to wait when it is empty.
+
+In case of threading implementation the queue.Queue is used. Threads share the memory through single process. In multiprocessing implementation, items are exchanged through multiprocessing.JoinableQueue in which all items are transferred between different processes. The queue is passed to the workers along with the print lock.
+
+
+
+After the producers finish their work, main program sends a None stop signal to each consumer to finish their work and exit. The join() method is called to wait for the workers to finish their execution.
+
+
+
+Results from saved runs:
+
+Threading: 1.005 seconds
+
+Multiprocessing: 1.026 seconds
+
+
+
+In this run execution of threading was noticeably faster. Multiprocessing adds startup and communication overhead. This test, however, relies on sleep() as a major operation, which leads us to the impression about the lack of its influence on the task. The GIL in Python allows only one thread to execute code in the context of one interpreter; in the multiprocessing execution scenario, it is possible to run separate processes simultaneously.
+
+The result is that both runs produced 15 items, as well as consumed 15, without losing a single item. The reads and writes were done with a buffer of size one and with one thread producer and one thread consumer . Finally, after returning to the initial parameters, both script executed 20 runs without any problems.
